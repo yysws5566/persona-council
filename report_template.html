@@ -96,29 +96,93 @@
   .bid-badge { font-size: 10px; padding: 1px 7px; border-radius: 100px; font-weight: 700; flex-shrink: 0; }
   .bid-badge.devil { background: var(--danger-soft); color: var(--danger); }
   .bid-badge.dissent { background: var(--bg-soft); color: var(--text-2); }
+  .bid-badge.guest { background: #EDE9FE; color: #6D28D9; }
+  .bid-dual { flex: none; width: 118px; font-size: 11px; color: var(--text-3); font-family: Consolas, monospace; text-align: right; }
 
-  /* 立论卡片 */
-  .arg-card { border: 1px solid var(--border-soft); border-left: 4px solid var(--orange); border-radius: 16px;
-    padding: 22px 24px; margin-bottom: 16px; transition: 200ms; background: linear-gradient(135deg, #fff, var(--bg-soft)); }
-  .arg-card:hover { box-shadow: var(--shadow-md); transform: translateX(2px); }
-  .arg-card.winner { border-left-color: var(--success); background: linear-gradient(to right, var(--success-soft), transparent 30%, #fff); }
-  .arg-card.minority { border-left-color: var(--text-3); opacity: 0.92; }
-  .arg-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 8px; }
-  .arg-who { display: flex; align-items: center; gap: 10px; }
-  .arg-avatar { width: 44px; height: 44px; border-radius: 14px; background: linear-gradient(135deg, var(--orange-soft), var(--blue-soft));
-    display: flex; align-items: center; justify-content: center; font-size: 24px; }
-  .arg-name { font-size: 16px; font-weight: 800; }
-  .arg-title { font-size: 12px; color: var(--text-3); }
-  .arg-stats { display: flex; gap: 8px; flex-wrap: wrap; }
-  .arg-chip { font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 100px; background: var(--bg-soft); color: var(--text-2); }
-  .arg-chip.bid { background: var(--orange-soft); color: #B45309; }
-  .arg-chip.conf { background: var(--blue-soft); color: #1E40AF; }
-  .arg-chip.vote { background: var(--success-soft); color: #065F46; }
-  .arg-body { display: grid; grid-template-columns: 64px 1fr; gap: 4px 10px; font-size: 13.5px; color: var(--text-2); line-height: 1.75; }
-  .arg-body .lab { font-size: 12px; font-weight: 800; color: var(--text); padding-top: 2px; }
-  .arg-body .lab.b { color: var(--success); } .arg-body .lab.c { color: var(--danger); } .arg-body .lab.n { color: var(--blue); }
-  .arg-quote { margin-top: 10px; font-size: 13px; font-weight: 600; color: var(--text);
-    background: var(--orange-soft); border-radius: 10px; padding: 10px 14px; border-left: 3px solid var(--orange); }
+  /* 嘉宾席·新颖TOP3 */
+  .guest-card { border: 1.5px solid rgba(109,40,217,.3); border-radius: 16px; padding: 18px 22px; margin-bottom: 14px;
+    background: linear-gradient(135deg, #F5F3FF, #fff); }
+  .guest-head { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+  .guest-avatar { flex: none; width: 40px; height: 40px; border-radius: 10px; background: linear-gradient(135deg,#EDE9FE,#DDD6FE);
+    display: flex; align-items: center; justify-content: center; font-size: 22px; }
+  .guest-name { font-size: 15.5px; font-weight: 800; }
+  .guest-novelty { margin-left: auto; font-size: 11px; color: #6D28D9; font-weight: 700; font-family: Consolas, monospace; }
+  .guest-say { font-size: 14.5px; color: var(--text-2); line-height: 1.8; border-left: 3px solid #A78BFA; padding-left: 14px; margin-bottom: 10px; }
+  .verdict-row { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+  .v-chip { font-size: 11px; font-weight: 700; border-radius: 100px; padding: 2px 10px; }
+  .v-chip.adopt { background: var(--success-soft); color: #15803D; }
+  .v-chip.hold { background: var(--warning-soft); color: #B45309; }
+  .v-chip.reject { background: var(--danger-soft); color: #B91C1C; }
+  .v-sum { font-size: 11.5px; color: var(--text-3); margin-left: auto; }
+  .cosign { font-size: 11px; color: #6D28D9; background: #F5F3FF; border-radius: 100px; padding: 1px 9px; }
+  .syn-box.adopt-zone { background: linear-gradient(135deg, #F5F3FF, #fff); border-color: rgba(109,40,217,.3); margin-bottom: 14px; }
+
+  /* 落地方案（方法型问题专用） */
+  .play-block { border: 1px solid var(--border-soft); border-radius: 16px; padding: 18px 22px; margin-bottom: 14px; background: var(--surface); }
+  .play-block .pb-t { font-size: 14.5px; font-weight: 800; color: #B45309; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+  .play-day { display: flex; gap: 12px; padding: 10px 0; border-bottom: 1px dashed var(--border-soft); font-size: 13.5px; color: var(--text-2); line-height: 1.8; }
+  .play-day:last-child { border-bottom: none; }
+  .play-day .d { flex: none; width: 72px; font-weight: 800; color: var(--blue); font-size: 12.5px; padding-top: 2px; }
+  .play-day .src { color: var(--text-3); font-size: 11.5px; }
+  .play-tag { display: inline-block; font-size: 10.5px; font-weight: 700; border-radius: 100px; padding: 1px 8px; margin-left: 6px; vertical-align: 1px; white-space: nowrap; }
+  .play-tag.now { background: var(--success-soft); color: #15803D; }
+  .play-tag.kpi { background: var(--blue-soft); color: #1E40AF; }
+  .play-tag.cost { background: var(--orange-soft); color: #B45309; }
+  .play-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .play-stop { background: linear-gradient(135deg, var(--danger-soft), #fff); border: 1px solid rgba(254,44,85,.3); border-radius: 16px; padding: 18px 22px; margin-bottom: 14px; }
+  .play-stop .k { font-size: 13.5px; font-weight: 800; color: #B91C1C; margin-bottom: 8px; }
+  .play-stop ul { margin-left: 18px; font-size: 13.5px; color: var(--text-2); line-height: 1.9; }
+  .play-week { background: linear-gradient(135deg, var(--success-soft), #fff); border: 1px solid rgba(16,185,129,.3); border-radius: 16px; padding: 18px 22px; margin-bottom: 14px; }
+  .play-week .k { font-size: 13.5px; font-weight: 800; color: #15803D; margin-bottom: 8px; }
+  .play-week ol { margin-left: 18px; font-size: 13.5px; color: var(--text-2); line-height: 1.9; }
+
+  /* 立论卡片（模块化：核心句→利弊对照→竖排行动列表→数据条） */
+  .arg-card { border: 1px solid var(--border-soft); border-radius: 18px; margin-bottom: 16px;
+    overflow: hidden; background: var(--surface); transition: 200ms; }
+  .arg-card:hover { box-shadow: var(--shadow-md); }
+  .arg-card.winner { border: 1.5px solid rgba(16,185,129,.5); }
+  .arg-card.devil { border: 1.5px solid rgba(254,44,85,.35); }
+  .arg-card.opp { border: 1.5px solid rgba(99,102,241,.35); }
+  .arg-head { display: flex; align-items: center; gap: 12px; padding: 14px 22px; border-bottom: 1px solid var(--border-soft); }
+  .arg-avatar { flex: none; width: 48px; height: 48px; border-radius: 12px;
+    background: linear-gradient(135deg, var(--orange-soft), var(--blue-soft));
+    display: flex; align-items: center; justify-content: center; font-size: 26px; }
+  .arg-name { font-size: 17px; font-weight: 800; }
+  .arg-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 3px; }
+  .arg-chip { font-size: 11.5px; background: var(--bg-soft); color: var(--text-2); border-radius: 100px; padding: 1px 10px; }
+  .arg-chip.hot { background: var(--orange-soft); color: #B45309; font-weight: 700; }
+  .arg-score { margin-left: auto; text-align: right; flex: none; }
+  .arg-score b { font-size: 20px; font-weight: 800; background: linear-gradient(135deg, var(--orange), var(--blue));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .arg-score span { display: block; font-size: 11px; color: var(--text-3); }
+  /* 核心一句：第一眼必须看到它 */
+  .arg-core { padding: 14px 22px; font-size: 17.5px; font-weight: 800; color: #92400E; line-height: 1.5;
+    background: linear-gradient(90deg, var(--orange-soft) 0%, #fff 80%); border-bottom: 1px solid var(--border-soft); }
+  .arg-core small { display: block; font-size: 12px; color: var(--text-3); font-weight: 400; margin-top: 3px; }
+  /* 利弊左右对照：各≤2行 */
+  .arg-pair { display: grid; grid-template-columns: 1fr 1fr; }
+  .arg-pair > div { padding: 13px 22px; font-size: 13.5px; }
+  .arg-pair .pro { border-right: 1px dashed var(--border-soft); }
+  .arg-pair .lab { display: inline-block; font-size: 11.5px; font-weight: 700; border-radius: 6px; padding: 0 8px; margin-bottom: 6px; }
+  .lab.g { background: var(--success-soft); color: #15803D; }
+  .lab.r { background: var(--danger-soft); color: #B91C1C; }
+  .arg-pair p { margin-bottom: 5px; color: var(--text-2); }
+  /* 竖排编号行动列表 */
+  .arg-steps { padding: 12px 22px 8px; border-top: 1px solid var(--border-soft); }
+  .arg-steps .t { display: block; font-size: 12px; font-weight: 800; color: #B45309; margin-bottom: 6px; letter-spacing: 2px; }
+  .step { display: flex; align-items: flex-start; gap: 10px; font-size: 13.5px; color: var(--text-2);
+    padding: 6px 0; border-bottom: 1px dashed #F1ECE4; line-height: 1.55; }
+  .step:last-child { border-bottom: none; padding-bottom: 10px; }
+  .step b { flex: none; width: 20px; height: 20px; margin-top: 1px; border-radius: 6px;
+    background: linear-gradient(135deg, var(--orange), var(--blue)); color: #fff; font-size: 11.5px;
+    font-weight: 800; display: flex; align-items: center; justify-content: center; }
+  /* 数据条收尾 */
+  .arg-foot { display: flex; align-items: center; gap: 16px; padding: 10px 22px; background: var(--bg-soft);
+    border-top: 1px solid var(--border-soft); font-size: 12.5px; color: var(--text-2); flex-wrap: wrap; }
+  .arg-foot .meter { width: 110px; height: 8px; background: #E9E4DC; border-radius: 100px; overflow: hidden; }
+  .arg-foot .meter i { display: block; height: 100%; background: linear-gradient(90deg, var(--orange), var(--blue)); }
+  .arg-foot .vt { margin-left: auto; font-weight: 700; color: #B45309; }
+  .arg-foot .vt .win { background: var(--orange-soft); border-radius: 8px; padding: 2px 10px; }
 
   /* 投票矩阵 */
   .vote-table { width: 100%; border-collapse: collapse; font-size: 12.5px; }
@@ -167,6 +231,32 @@
   .p0 .action-badge { background: var(--danger); } .p1 .action-badge { background: var(--warning); } .p2 .action-badge { background: var(--blue); }
   .action-detail { font-size: 13px; color: var(--text-2); line-height: 1.7; }
 
+  /* 全会总结：一屏收拢全文 */
+  .sumcard { margin-top: 22px; border: 2px solid var(--orange); border-radius: 18px; overflow: hidden; background: var(--surface); }
+  .sumcard .cap { background: linear-gradient(135deg, var(--orange), var(--blue)); color: #fff;
+    padding: 12px 22px; font-size: 17px; font-weight: 800; display: flex; align-items: center; gap: 10px; }
+  .sumcard .cap small { font-weight: 400; font-size: 12px; opacity: .85; }
+  .sum-body { padding: 20px 22px; }
+  .sum-verdict { font-size: 16.5px; font-weight: 800; color: #92400E; line-height: 1.6; margin-bottom: 16px; }
+  .sum-awards { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
+  .sum-awards .aw-chip { font-size: 13px; border-radius: 10px; padding: 7px 14px; font-weight: 700; }
+  .aw-chip.a { background: var(--orange-soft); color: #92400E; }
+  .aw-chip.b { background: var(--success-soft); color: #166534; }
+  .aw-chip.c { background: var(--danger-soft); color: #991B1B; }
+  .aw-chip.d { background: var(--blue-soft); color: #1E3A8A; }
+  .aw-chip.e { background: #F5F3FF; color: #6D28D9; }
+  .sum-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .sum-box { border: 1px solid var(--border-soft); border-radius: 12px; padding: 13px 16px; }
+  .sum-box h4 { font-size: 13px; color: #B45309; margin-bottom: 8px; }
+  .sum-box ul { margin-left: 16px; font-size: 13.2px; color: var(--text-2); }
+  .sum-box li { margin-bottom: 6px; }
+  .sum-if { border-top: 1px dashed var(--border-soft); margin-top: 14px; padding-top: 14px; }
+  .sum-if h4 { font-size: 13px; color: #B45309; margin-bottom: 10px; }
+  .ifrow { display: flex; gap: 10px; align-items: baseline; font-size: 13.2px; margin-bottom: 7px; }
+  .ifrow .c { flex: none; max-width: 270px; font-weight: 700; color: var(--text-2); }
+  .ifrow .arrow { flex: none; color: var(--orange); font-weight: 800; }
+  .ifrow .r { color: var(--text-2); }
+
   .tag { display: inline-flex; align-items: center; padding: 4px 10px; background: var(--orange-soft); color: var(--orange);
     border-radius: 100px; font-size: 12px; font-weight: 600; margin: 2px; }
   .tag.blue { background: var(--blue-soft); color: #2563EB; }
@@ -183,7 +273,11 @@
     .cond-item { flex-direction: column; gap: 6px; }
     .cond-if { width: auto; }
     .hero h1 { font-size: 26px; }
-    .arg-body { grid-template-columns: 1fr; gap: 0; }
+    .arg-pair { grid-template-columns: 1fr; }
+    .arg-pair .pro { border-right: none; border-bottom: 1px dashed var(--border-soft); }
+    .sum-grid { grid-template-columns: 1fr; }
+    .ifrow { flex-wrap: wrap; }
+    .ifrow .c { max-width: 100%; }
   }
   @media (max-width: 600px) {
     body { padding: 16px 12px 60px; } .hero { padding: 28px 24px; } section { padding: 24px 20px; }
@@ -229,18 +323,26 @@
   <section>
     <div class="sec-head">
       <div class="sec-icon">🎫</div>
-      <div><h2>竞价入场</h2><div class="sub">专业相关度打分，低于60分不参与讨论</div></div>
+      <div><h2>双轴竞价</h2><div class="sub">竞价分=专业度×0.7+公众影响力×0.3，低于60分不参与讨论；TOP10另选新颖嘉宾3席</div></div>
     </div>
-    <!-- 每位立论者一行：bid-bar宽度=竞价分%；魔鬼代言人/反方代表用特殊配色与徽标 -->
+    <!-- 每位立论者一行：bid-bar宽度=竞价分%；右侧双轴明细「专业xx・影响xx」；魔鬼代言人/反方代表用特殊配色与徽标 -->
     <div class="bid-row">
       <div class="bid-name">{{EMOJI}} {{NAME}}</div>
       <div class="bid-bar-wrap"><div class="bid-bar" style="width: {{BID}}%;">{{BID}}</div></div>
+      <span class="bid-dual">专业{{PROF}}・影响{{INF}}</span>
       <span class="bid-badge">{{SCHOOL}}</span>
     </div>
     <!-- ……重复 TOP10 行…… -->
+    <!-- 嘉宾席3行：bid-bar 用 .guest 配色，徽标 .bid-badge.guest，双轴位换成新颖度 -->
+    <div class="bid-row">
+      <div class="bid-name">🎭 {{GUEST_EMOJI}} {{GUEST_NAME}}</div>
+      <div class="bid-bar-wrap"><div class="bid-bar dissent" style="width: {{GBID}}%;">{{GBID}}</div></div>
+      <span class="bid-dual">新颖度{{NOVELTY}}</span>
+      <span class="bid-badge guest">嘉宾</span>
+    </div>
     <div class="notice-banner" style="margin-top:14px; margin-bottom:0;">
       <span>ℹ️</span>
-      <span>{{BID_NOTE：出局人数、多样性约束说明、三个保底席位（魔鬼代言人🔴/反方代表⚫/利益相关方💼）}}</span>
+      <span>{{BID_NOTE：出局人数、双轴竞价说明（专业度×0.7+影响力×0.3）、多样性约束、三个保底席位（魔鬼代言人🔴/反方代表⚫/利益相关方💼）、嘉宾席规则（TOP10外新颖度TOP3，竞价≥55）}}</span>
     </div>
   </section>
 
@@ -250,28 +352,56 @@
       <div class="sec-icon">🎤</div>
       <div><h2>TOP10 立论</h2><div class="sub">是什么 · 利 · 弊 · 下一步 · 信心度</div></div>
     </div>
-    <!-- 每位立论者一张卡；获奖者加 .winner；得票最低者加 .minority -->
+    <!-- 每位立论者一张卡；总分第一加 .winner；魔鬼代言人加 .devil；反方代表加 .opp -->
+    <!-- 结构固定五段：抬头→核心句→利弊对照→竖排行动列表→数据条。排版规则：中文与数字/字母间不留空格，分隔点用「・」 -->
     <div class="arg-card">
       <div class="arg-head">
-        <div class="arg-who">
-          <div class="arg-avatar">{{EMOJI}}</div>
-          <div><div class="arg-name">{{NAME}}</div><div class="arg-title">{{IDENTITY}}</div></div>
+        <div class="arg-avatar">{{EMOJI}}</div>
+        <div>
+          <div class="arg-name">{{NAME}}</div>
+          <div class="arg-chips"><span class="arg-chip hot">{{主领域}}</span><span class="arg-chip">{{专长标签}}</span><span class="arg-chip">{{身份标签}}</span></div>
         </div>
-        <div class="arg-stats">
-          <span class="arg-chip bid">竞价 {{BID}}</span>
-          <span class="arg-chip conf">信心 {{CONF}}%</span>
-          <span class="arg-chip vote">得票 {{VOTES}}</span>
-        </div>
+        <div class="arg-score"><b>{{BID}}</b><span>竞价分</span></div>
       </div>
-      <div class="arg-body">
-        <div class="lab">是什么</div><div>{{WHAT}}</div>
-        <div class="lab b">利</div><div>{{PROS}}</div>
-        <div class="lab c">弊</div><div>{{CONS}}</div>
-        <div class="lab n">下一步</div><div>{{NEXT}}</div>
+      <div class="arg-core">{{CORE：核心一句，≤25字，人设语气，敢下判断}}<small>{{CORE_SUB：一句展开，≤30字}}</small></div>
+      <div class="arg-pair">
+        <div class="pro"><span class="lab g">✅ 为什么对</span><p>· {{PRO_1：≤20字}}</p><p>· {{PRO_2：≤20字}}</p></div>
+        <div><span class="lab r">⚠️ 坑在哪</span><p>· {{CON_1：≤20字}}</p><p>· {{CON_2：≤20字}}</p></div>
       </div>
-      <div class="arg-quote">💬 {{QUOTE}}</div>
+      <div class="arg-steps">
+        <span class="t">NEXT STEP</span>
+        <div class="step"><b>1</b>{{STEP_1：≤18字，动作直给}}</div>
+        <div class="step"><b>2</b>{{STEP_2}}</div>
+        <div class="step"><b>3</b>{{STEP_3}}</div>
+        <div class="step"><b>4</b>{{STEP_4：最多4-5条}}</div>
+      </div>
+      <div class="arg-foot">信心{{CONF}}<div class="meter"><i style="width: {{CONF}}%"></i></div><span class="cosign">{{COSIGN：如「+3人联署：达利欧・卡拉曼・邓普顿」，无联署删除本span}}</span><div class="vt">{{VOTES：加权得票，获奖者写成胶囊如「🏆总分第一4.96」}}</div></div>
     </div>
     <!-- ……重复 10 张卡…… -->
+  </section>
+
+  <!-- ============ 4.5 嘉宾席·新颖TOP3 ============ -->
+  <section>
+    <div class="sec-head">
+      <div class="sec-icon">🎭</div>
+      <div><h2>嘉宾席 · 新颖TOP3</h2><div class="sub">TOP10之外的「场外视角」——只说场内没人会说的话，TOP10全员表态采纳/保留/驳回</div></div>
+    </div>
+    <!-- 每位嘉宾一卡：发言≤150字 + TOP10表态统计；全票驳回也原样保留 -->
+    <div class="guest-card">
+      <div class="guest-head">
+        <div class="guest-avatar">{{GUEST_EMOJI}}</div>
+        <div class="guest-name">{{GUEST_NAME}}<span style="font-weight:400;font-size:12px;color:var(--text-3)"> ｜ {{GUEST_FROM：所属团/身份}}</span></div>
+        <div class="guest-novelty">新颖度 {{NOVELTY}}</div>
+      </div>
+      <div class="guest-say">{{GUEST_SAID：≤150字场外视角原文}}</div>
+      <div class="verdict-row">
+        <span class="v-chip adopt">✅采纳{{N_A}}人：{{ADOPTERS与一句理由}}</span>
+        <span class="v-chip hold">🟡保留{{N_H}}人</span>
+        <span class="v-chip reject">❌驳回{{N_R}}人：{{一句驳回理由}}</span>
+        <span class="v-sum">{{VERDICT_SUM：如「4/10采纳→进入议长场外视角区」或「未达1/3采纳线→原样保留不采纳」}}</span>
+      </div>
+    </div>
+    <!-- ……重复 3 张嘉宾卡…… -->
   </section>
 
   <!-- ============ 5. 投票矩阵 ============ -->
@@ -314,6 +444,8 @@
       <div class="syn-box consensus"><div class="k">✅ 共识区（≥7/10立论者支持）</div><div class="v">{{CONSENSUS_ITEMS}}</div></div>
       <div class="syn-box split"><div class="k">⚔️ 分歧区（各流派最强一句）</div><div class="v">{{SPLIT_ITEMS}}</div></div>
     </div>
+    <!-- 场外视角采纳区（嘉宾观点被采纳时必含，全驳回时删除本框） -->
+    <div class="syn-box adopt-zone"><div class="k">🎭 场外视角采纳区（嘉宾破圈补丁）</div><div class="v">{{ADOPTED_GUEST_ITEMS：被采纳的嘉宾观点+采纳人+一句理由}}</div></div>
     <!-- 条件式结论：if-then 结构 -->
     <div class="cond-item"><div class="cond-if">IF {{CONDITION}}</div><div class="cond-then">{{THEN}}</div></div>
     <!-- ……重复若干条…… -->
@@ -327,11 +459,82 @@
     </div>
   </section>
 
-  <!-- ============ 8. 页脚 ============ -->
+  <!-- ============ 7.5 落地方案（方法型问题必含，其他问题整节删除） ============ -->
+  <section>
+    <div class="sec-head">
+      <div class="sec-icon">🛠️</div>
+      <div><h2>落地方案</h2><div class="sub">把共识翻译成动作——每条带三要素：今天能做・验收标准・花多少钱；主张溯源到席</div></div>
+    </div>
+    <div class="play-block">
+      <div class="pb-t">⏱️ 72小时启动清单</div>
+      <div class="play-day"><span class="d">今天</span><span>{{DAY1：≤2小时能做完的一条动作}}<span class="play-tag now">今天能做</span><span class="play-tag cost">{{COST1}}</span><span class="src">（{{SRC1：主张来源，如纳瓦尔・P0}}）</span></span></div>
+      <div class="play-day"><span class="d">明天</span><span>{{DAY2}}<span class="play-tag now">今天能做</span><span class="play-tag cost">{{COST2}}</span><span class="src">（{{SRC2}}）</span></span></div>
+      <div class="play-day"><span class="d">后天</span><span>{{DAY3}}<span class="play-tag now">今天能做</span><span class="play-tag cost">{{COST3}}</span><span class="src">（{{SRC3}}）</span></span></div>
+    </div>
+    <div class="play-block">
+      <div class="pb-t">📅 90天路线图（月度里程碑+验收标准）</div>
+      <div class="play-day"><span class="d">第1个月</span><span>{{M1：里程碑}}<span class="play-tag kpi">验收：{{KPI1：量化标准}}</span><span class="src">｜不达标：{{FALLBACK1：换打法不换赛道}}</span></span></div>
+      <div class="play-day"><span class="d">第2个月</span><span>{{M2}}<span class="play-tag kpi">验收：{{KPI2}}</span><span class="src">｜不达标：{{FALLBACK2}}</span></span></div>
+      <div class="play-day"><span class="d">第3个月</span><span>{{M3}}<span class="play-tag kpi">验收：{{KPI3}}</span><span class="src">｜不达标：{{FALLBACK3}}</span></span></div>
+    </div>
+    <div class="play-grid">
+      <div class="play-block">
+        <div class="pb-t">🧭 12-36个月阶段路线</div>
+        <div class="play-day"><span class="d">年1</span><span>{{Y1}}</span></div>
+        <div class="play-day"><span class="d">年2</span><span>{{Y2}}</span></div>
+        <div class="play-day"><span class="d">年3</span><span>{{Y3}}</span></div>
+      </div>
+      <div class="play-block">
+        <div class="pb-t">🧰 最低资源配置</div>
+        <div class="play-day"><span class="d">0元版</span><span>{{FREE_VER}}</span></div>
+        <div class="play-day"><span class="d">必要版</span><span>{{NEED_VER}}</span></div>
+        <div class="play-day"><span class="d">时间</span><span>{{TIME_COST}}</span></div>
+      </div>
+    </div>
+    <div class="play-stop">
+      <div class="k">🛑 止损线（出现即调整或退出）</div>
+      <ul><li>{{STOP_1}}</li><li>{{STOP_2}}</li><li>{{STOP_3：最多5条，须引用风险预警奖/反方代表主张}}</li></ul>
+    </div>
+    <div class="play-week">
+      <div class="k">📋 每周复盘3问（10分钟）</div>
+      <ol><li>{{WEEK_Q1}}</li><li>{{WEEK_Q2}}</li><li>{{WEEK_Q3}}</li></ol>
+    </div>
+  </section>
+
+  <!-- ============ 8. 全会总结：一屏收拢全文 ============ -->
+  <div class="sumcard">
+    <div class="cap">🏁 全会总结<small>没时间看全文，看这一块就够</small></div>
+    <div class="sum-body">
+      <div class="sum-verdict">{{SUM_VERDICT：总评一句，公式级结论，≤50字}}</div>
+      <div class="sum-awards">
+        <span class="aw-chip a">🏆 总分第一・{{WINNER_TOTAL}} {{WINNER_TOTAL_SCORE}}「{{原话一句}}」</span>
+        <span class="aw-chip d">🎯 最佳洞察・{{WINNER_INSIGHT}}「{{原话一句}}」</span>
+        <span class="aw-chip b">🛠️ 最佳可行・{{WINNER_FEASIBLE}}「{{原话一句}}」</span>
+        <span class="aw-chip c">⚠️ 最佳泼冷水・{{WINNER_RISK}}「{{原话一句}}」</span>
+        <span class="aw-chip e">🎭 嘉宾破圈・{{GUEST_NAME}}「{{被采纳的观点一句}}」</span>
+      </div>
+      <div class="sum-grid">
+        <div class="sum-box"><h4>📌 硬共识</h4>
+          <ul><li>{{CONSENSUS_1}}</li><li>{{CONSENSUS_2}}</li><li>{{CONSENSUS_3}}</li></ul>
+        </div>
+        <div class="sum-box"><h4>🔴 立刻做（P0）</h4>
+          <ul><li>{{P0_1}}</li><li>{{P0_2}}</li><li>{{P0_3}}</li></ul>
+        </div>
+      </div>
+      <div class="sum-if">
+        <h4>🧭 对号入座（分歧即条件变量）</h4>
+        <div class="ifrow"><span class="c">{{CONDITION_1}}</span><span class="arrow">→</span><span class="r">{{THEN_1}}</span></div>
+        <div class="ifrow"><span class="c">{{CONDITION_2}}</span><span class="arrow">→</span><span class="r">{{THEN_2}}</span></div>
+        <div class="ifrow"><span class="c">{{CONDITION_3}}</span><span class="arrow">→</span><span class="r">{{THEN_3：最多5行}}</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ 9. 页脚 ============ -->
   <footer>
-    📅 {{DATE}} · <strong>🏛️ 名人议会 persona-council v1.0</strong><br>
+    📅 {{DATE}} · <strong>🏛️ 名人议会 persona-council v1.3</strong><br>
     ⚠️ 所有人物言论均为方法论蒸馏的模拟观点，非真人立场{{DISCLAIMER：涉钱问题固定加「本报告不构成投资建议，仅供参考，市场有风险，决策需独立判断」；涉健康/法律加对应提示}}<br>
-    🎫 机制：竞价入场（≥60）→ TOP10立论 → 加权三维投票 → 议长综合 · 少数派报告保留
+    🎫 机制：双轴竞价（专业×0.7+影响×0.3，≥60入场，另选新颖嘉宾TOP3）→ TOP10立论（论点查重联署）→ 嘉宾发言·TOP10评委表态 → 加权三维投票 → 议长综合（方法型问题追加落地方案）・ 少数派+场外视角保留
   </footer>
 
 </div>
